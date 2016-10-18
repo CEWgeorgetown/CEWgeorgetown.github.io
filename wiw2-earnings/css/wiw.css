@@ -1,0 +1,393 @@
+@charset "UTF-8";
+/* CSS Document */
+ body {
+	font-family:'Myriad W01 Regular';
+}
+a {
+	color: #002269;
+	visited: #002269;
+}
+strong {
+	font-family: 'Myriad W01 Bd';
+}
+
+.state-table > tbody > tr > td > .national::before {
+	content: "National Wages:";
+	text-transform: uppercase;
+	text-align: center;
+	font-size: .8em;
+	font-weight: bold;
+}
+.state-table > tbody > tr > td > .state::before {
+	content: "State Wages:";
+	text-transform: uppercase;
+	text-align: center;
+	font-size: .8em;
+	font-weight: bold;
+}
+
+.b-bar {
+	height: 12px;
+	background-color: red;
+	font-size: .7em;	
+}
+
+.d-bar {
+	height: 12px;
+	background-color: #DEDEDE;	
+}
+.g-bar {
+	height: 12px;
+	/* background-color: blue; */
+	font-size: .7em;	
+}
+.g-error {
+	text-align: center;
+	color: #DEDEDE;
+}
+#wiw_filter {
+	display: none;	
+}
+
+.agriculture-and-natural-resources-icon {
+	color: #BD226B;
+}
+.b-bar.agriculture-and-natural-resources {
+	background-color: #BD226B;
+}
+.architecture-and-engineering-icon {
+	color: #D92423;
+}
+.b-bar.architecture-and-engineering {
+	background-color: #D92423;
+}
+.arts-icon {
+	color: #D96637;
+}
+.b-bar.arts {
+	background-color: #D96637;
+}
+.biology-and-life-sciences-icon {
+	color: #F38C3B;	
+}
+.b-bar.biology-and-life-sciences {
+	background-color: #F38C3B;	
+}
+.business-icon {
+	color: #FBAF31;	
+}
+.b-bar.business {
+	background-color: #FBAF31;	
+}
+.communications-and-journalism-icon {
+	color: #A6BE43;	
+}
+.b-bar.communications-and-journalism {
+	background-color: #A6BE43;	
+}
+.computers-statistics-and-mathematics-icon {
+	color: #53B64E;	
+}
+.b-bar.computers-statistics-and-mathematics {
+	background-color: #53B64E;	
+}
+.education-icon {
+	color: #0D723D;	
+}
+.b-bar.education {
+	background-color: #0D723D;	
+}
+.health-icon {
+	color: #169882;	
+}
+.b-bar.health {
+	background-color: #169882;	
+}
+.humanities-and-liberal-arts-icon {
+	color: #55C4D5;	
+}
+.b-bar.humanities-and-liberal-arts {
+	background-color: #55C4D5;	
+}
+.industrial-arts-consumer-services-and-recreation-icon {
+	color: #25A0D8;	
+}
+.b-bar.industrial-arts-consumer-services-and-recreation {
+	background-color: #25A0D8;	
+}
+.law-and-public-policy-icon {
+	color: #147FE0;	
+}
+.b-bar.law-and-public-policy {
+	background-color: #147FE0;	
+}
+.physical-sciences-icon {
+	color: #0B5D92;	
+}
+.b-bar.physical-sciences {
+	background-color: #0B5D92;	
+}
+.psychology-and-social-work-icon {
+	color: #7D7BA4;	
+}
+.b-bar.psychology-and-social-work {
+	background-color: #7D7BA4;	
+}
+.social-sciences-icon {
+	color: #8C65A9;	
+}
+.b-bar.social-sciences {
+	background-color: #8C65A9;	
+}
+.g-bar.agriculture-and-natural-resources {
+	background-color: #DE8FB5;
+}
+
+.g-bar.architecture-and-engineering {
+	background-color: #EB918D;
+}
+.g-bar.arts {
+	background-color: #ECB299;
+}
+.g-bar.biology-and-life-sciences {
+	background-color: #F7BA86;	
+}
+.g-bar.business {
+	background-color: #FDD790;	
+}
+.g-bar.communications-and-journalism {
+	background-color: #CAD88C;	
+}
+.g-bar.computers-statistics-and-mathematics {
+	background-color: #97D393;	
+}
+.g-bar.education {
+	background-color: #81B89D;	
+}
+.g-bar.health {
+	background-color: #82CCC0;	
+}
+.g-bar.humanities-and-liberal-arts {
+	background-color: #A9E2EA;	
+}
+.g-bar.industrial-arts-consumer-services-and-recreation {
+	background-color: #8DCFEB;	
+}
+.g-bar.law-and-public-policy {
+	background-color: #82BFEF;	
+}
+.g-bar.physical-sciences {
+	background-color: #81AEC8;	
+}
+.g-bar.psychology-and-social-work {
+	background-color: #BEBDD2;	
+}
+.g-bar.social-sciences {
+	background-color: #C5B2D4;	
+}
+
+.state-table > tbody > tr > td > .national > .b-bar {
+	background-color: black;
+}
+.state-table > tbody > tr > td > .national > .g-bar {
+	background-color: #999;
+}
+
+
+
+#group-id-wiw_agriculture-and-natural-resources {
+	color: #BD226B;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-agriculture-and-natural-resources .b-bar {
+	background-color: #BD226B;
+}
+
+.group-item-agriculture-and-natural-resources .g-bar {
+	background-color: #DE8FB5;
+}
+
+#group-id-wiw_architecture-and-engineering {
+	color: #D92423;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-architecture-and-engineering .b-bar {
+	background-color: #D92423;
+}
+
+.group-item-architecture-and-engineering .g-bar {
+	background-color: #EB918D;
+}
+
+#group-id-wiw_arts {
+	color: #D96637;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-arts .b-bar {
+	background-color: #D96637;
+}
+
+.group-item-arts .g-bar {
+	background-color: #ECB299;
+}
+
+#group-id-wiw_biology-and-life-sciences {
+	color: #F38C3B;
+	font-family: 'Myriad W01 Bd';
+}
+
+.group-item-biology-and-life-sciences .b-bar {
+	background-color: #F38C3B;
+}
+
+.group-item-biology-and-life-sciences .g-bar {
+	background-color: #F7BA86;
+}
+
+
+#group-id-wiw_business {
+	color: #FBAF31;
+	font-family: 'Myriad W01 Bd';
+}
+
+
+.group-item-business .b-bar {
+	background-color: #FBAF31;
+}
+
+.group-item-business .g-bar {
+	background-color: #FDD790;
+}
+
+
+#group-id-wiw_communications-and-journalism {
+	color: #A6BE43;
+	font-family: 'Myriad W01 Bd';
+}
+
+
+.group-item-communications-and-journalism .b-bar {
+	background-color: #A6BE43;
+}
+
+.group-item-communications-and-journalism .g-bar {
+	background-color: #CAD88C;
+}
+
+#group-id-wiw_computers-statistics-and-mathematics {
+	color: #53B64E;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-computers-statistics-and-mathematics .b-bar {
+	background-color: #53B64E;
+}
+.group-item-computers-statistics-and-mathematics .g-bar {
+	background-color: #97D393;
+}
+#group-id-wiw_education {
+	color: #0D723D;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-education .b-bar {
+	background-color: #0D723D;
+}
+.group-item-education .g-bar {
+	background-color: #81B89D;
+}
+#group-id-wiw_health {
+	color: #169882;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-health .b-bar {
+	background-color: #169882;
+}
+.group-item-health .g-bar {
+	background-color: #82CCC0;
+}
+#group-id-wiw_humanities-and-liberal-arts {
+	color: #55C4D5;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-humanities-and-liberal-arts .b-bar {
+	background-color: #55C4D5;
+}
+.group-item-humanities-and-liberal-arts .g-bar {
+	background-color: #A9E2EA;
+}
+#group-id-wiw_industrial-arts-consumer-services-and-recreation {
+	color: #25A0D8;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-industrial-arts-consumer-services-and-recreation .b-bar {
+	background-color: #25A0D8;
+}
+.group-item-industrial-arts-consumer-services-and-recreation .g-bar {
+	background-color: #8DCFEB;
+}
+#group-id-wiw_law-and-public-policy {
+	color: #147FE0;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-law-and-public-policy .b-bar {
+	background-color: #147FE0;
+}
+.group-item-law-and-public-policy .g-bar {
+	background-color: #82BFEF;
+}
+#group-id-wiw_physical-sciences {
+	color: #0B5D92;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-physical-sciences .b-bar {
+	background-color: #0B5D92;
+}
+.group-item-physical-sciences .g-bar {
+	background-color: #81AEC8;
+}
+#group-id-wiw_psychology-and-social-work {
+	color: #7D7BA4;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-psychology-and-social-work .b-bar {
+	background-color: #7D7BA4;
+}
+.group-item-psychology-and-social-work .g-bar {
+	background-color: #BEBDD2;
+}
+#group-id-wiw_social-sciences {
+	color: #8C65A9;
+	font-family: 'Myriad W01 Bd';
+}
+.group-item-social-sciences .b-bar {
+	background-color: #8C65A9;
+}
+.group-item-social-sciences .g-bar {
+	background-color: #C5B2D4;
+}
+.dataTables_info {
+	display: none;
+}
+.collapsed-group::before {
+	content: "+ ";
+}
+.expanded-group::before {
+	content: "\2013  ";
+}
+a.tip {
+	margin-top: 0;
+	padding-top: 0;
+	color: #DEDEDE;
+}
+
+
+/* StateFace Stuff */
+ @font-face {
+     font-family: 'StateFaceRegular';
+     src: url('../font/stateface-regular-webfont.eot');
+     src: url('../font/stateface-regular-webfont.eot?#iefix') format('embedded-opentype'),
+          url('../font/stateface-regular-webfont.woff') format('woff'),
+          url('../font/stateface-regular-webfont.ttf') format('truetype'),
+          url('../font/stateface-regular-webfont.svg#StateFaceRegular') format('svg');
+     font-weight: normal;
+     font-style: normal;
+ }

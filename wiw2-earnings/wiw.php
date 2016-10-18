@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Economic Value of College Majors</title>
+<?php
+$mgroup = $_GET["mgroup"];
+$class = strtolower($mgroup);
+//Make alphanumeric (removes all other characters)
+$class = preg_replace("/[^a-z0-9_\s-]/", "", $class);
+//Clean up multiple dashes or whitespaces
+$class = preg_replace("/[\s-]+/", " ", $class);
+    //Convert whitespaces and underscore to dash
+$class = preg_replace("/[\s_]/", "-", $class);
+
+$bstnm = $_GET["bstnm"];
+$bstnm = strtolower($bstnm);
+
+$stname = $_GET["fstate"];
+
+$icon = $_GET["i"];
+
+
+?>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+
+<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.6/css/jquery.dataTables.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/wiw.css"/>
+<link rel="stylesheet" type="text/css" href="css/stateface.css"/>
+
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" charset="utf8" src="//jquery-datatables-row-grouping.googlecode.com/svn/trunk/media/js/jquery.dataTables.rowGrouping.js"></script> 
+
+<script type="text/javascript" src="//fast.fonts.net/jsapi/34999b20-7cff-46b1-a1a8-b2c1cbb5e5c8.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+
+<script type="text/javascript" language="javascript" class="init">
+function filterColumn ( i ) {
+    $('#wiw').DataTable().column( i ).search(
+        $('#col'+i+'_filter').val(),
+		$('#col'+i+'_smart').prop('checked')
+    ).draw();
+}
+
+
+
+$(document).ready(function() {
+	var table = $('#wiw').dataTable( {
+		"ajax": "WIW.json",
+		
+		"columnDefs": [
+            { "visible": false, "targets": 0 },
+	        { "visible": false, "targets": 2 },			
+	        { "visible": false, "targets": 3 },
+            { "visible": false, "targets": 5 },	
+            { "visible": false, "targets": 6 },
+            { "visible": false, "targets": 7 },
+			{ "visible": false, "targets": 8 },
+            { "visible": false, "targets": 9 },
+            { "visible": false, "targets": 10 },
+			{ "visible": false, "targets": 11 },
+			{ "visible": false, "targets": 12 },
+			{ "visible": false, "targets": 13 }
+			        ],
+		
+		"order": [[ 1, "asc" ]]	,		
+					
+		"searchCols": [
+		
+			{ "search": "^<?php echo ($_GET["mgroup"]) ?>", "regex": true, "smart": true },
+		    //{ "search": "<?php echo ($_GET["mgroup"]) ?>" },
+    		//{ "search": "^\\s*"+'<?php echo ($_GET["mgroup"]) ?>'+"\\s*$", "regex": false, "smart": false },
+			null, null, null, null, null, null, null,
+    		{ "search": "<?php echo ($_GET["bstnm"]) ?>" },
+			null, null, null, null,
+    		{ "search": "<?php echo ($_GET["dtype"]) ?>" },
+  		],
+		"columns": [
+			{ "data": "Mgroup" },
+			{ "data": "Dmajor" },
+			{ "data": "Bpop" },
+			{ "data": "Gpop" },
+			{ "data": "MergeChart" },
+			{ "data": "B25" },
+			{ "data": "Bmedian" },
+			{ "data": "B75" },
+			{ "data": "Bstabbr" },
+			{ "data": "G25" },
+			{ "data": "Gmedian" },
+			{ "data": "G75" },
+			{ "data": "Gstabbr" },
+			{ "data": "DataType" }			
+		],
+		"lengthChange": false,
+		"pageLength": <? if (!empty($stname)) {echo "3";} ?><? if (empty($stname)) {echo "8";} ?>
+		//"paging": false
+
+	} );
+	
+	$('a.toggle-vis').on( 'click', function (e) {
+    	e.preventDefault();
+ 
+        // Get the column API object
+        var column = $('#wiw').DataTable().column( $(this).attr('data-column') );
+ 
+        // Toggle the visibility
+        column.visible( ! column.visible() );
+    } );
+	
+	//.rowGrouping({bExpandableGrouping: true, asExpandedGroups: []});;
+	 
+  	$('[data-toggle="popover"]').popover();
+	
+	$('#wiw tbody').on('click', 'a.tip', function () {
+		console.log('popoverclick');
+		$(this).popover({html : true});//Initializes popover
+   		$(this).popover('show');//show popover		
+        //$('[data-toggle="popover"]').popover();
+		//var name = $('td', this).eq(0).text();
+        //alert( 'You clicked on it.' );
+		//console.log(data.name);
+    } );
+	
+	$('input.column_filter').on( 'keyup click', function () {
+        filterColumn( $(this).parents('tr').attr('data-column') );
+    } );
+	
+	
+} );
+
+	</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43086304-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body>
+
+
+<div class="vc_column_container">
+<div class="row">
+
+<div class="col-md-12">
+<table>
+<tr id="filter_col1" data-column="1">
+<td style="padding-right:20px;">
+<a class="btn btn-primary" href="index.php">&laquo; Start over</a>
+</td>
+<td style="padding-right:20px;">
+<input type="text" class="column_filter form-control" id="col1_filter" placeholder="Search for a major..."/> <input type="checkbox" class="column_filter" id="col1_smart" checked="checked" style="display:none;"/>
+</td>
+<td>
+<? if (empty($stname)) { ?>
+
+					<p style="padding-top:6px;"><strong>Show/Hide Popularity of:</strong> <a class="toggle-vis" data-column="2"><img src="images/Icon-B.png" alt="Bachelor's Degree Popularity" height="30"/> Bachelor's Degrees</a> &bull; <a class="toggle-vis" data-column="3"><img src="images/Icon-G.png" alt="Graduate Degree Popularity" height="30"/> Graduate Degrees</a>
+                    
+                    </p>
+ <? } ?>     
+</td>
+</tr>
+</table>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<?php
+
+
+if (!empty($mgroup)) {
+    echo "<h2 class='" .$class. "-icon'><span class='fa-stack fa-lg'><i class='fa fa-circle fa-stack-2x'></i><i class='fa " .$icon. " fa-stack-1x fa-inverse'></i></span> National data for " .$mgroup . " majors</h2>";
+} elseif (!empty($stname)) {
+    echo "<h2><span class='stateface stateface-" .$bstnm."'></span> State data for " .$stname. "</h2>";
+} else {
+    echo "<h2>National data for all majors</h2>";
+}
+?>
+</div>
+</div>
+
+<div class="row">
+<div style="padding: 0px 10px 0px 10px">
+<table id="wiw" class="display<? if (!empty($stname)) {echo " state-table";} ?>" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Mgroup</th>
+            <th>Sort Majors</th>
+            <th><img src="images/Icon-B.png" alt="Bachelor's Degree Popularity" height="30"/></th>
+            <th><img src="images/Icon-G.png" alt="Graduate Degree Popularity" height="30"/></th>
+            <th width="80%">
+            <div class="numbers">
+            <div style="width:20%; text-align: center; float: left;">
+            $20<span class="hidden-xs">,000</span><span class="visible-xs-inline">k</span>
+            </div>
+                        <div style="width:20%; text-align: center; float: left;">
+            $60<span class="hidden-xs">,000</span><span class="visible-xs-inline">k</span>
+            </div>
+                                    <div style="width:20%; text-align: center; float: left;">
+            $100<span class="hidden-xs">,000</span><span class="visible-xs-inline">k</span>
+            </div>
+                                                <div style="width:20%; text-align: center; float: left;">
+            $140<span class="hidden-xs">,000</span><span class="visible-xs-inline">k</span>
+            </div>
+                                                            <div style="width:20%; text-align: center; float: left;">
+            $180<span class="hidden-xs">,000</span><span class="visible-xs-inline">k</span>
+            </div>
+            
+            </div>
+            <div class="scale">
+            <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+			&nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+                        <div style="width:10%; border-right: 1px solid #999; float:left;">
+            &nbsp;
+            </div>
+           
+            </div>
+            </th>
+            <th>25%</th>
+            <th>50%</th>
+            <th>75%</th>
+            <th>Bstnm</th>
+            <th>25%</th>
+            <th>50%</th>
+            <th>75%</th>
+            <th>Gstnm</th>  
+            <th>DataType</th>                     
+        </tr>
+    </thead>
+</table>
+<? if (!empty($stname)) { ?>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="popover" title="State Wages" data-content="<img src='https://cew.georgetown.edu/wp-content/uploads/StateWages.gif' style='width:100%;'/><p>National wages are displayed in black and gray bars. State wages are displayed in colored bars.</p><br/>" data-html="true" data-placement="top">State Wages Legend</button>
+ <? } ?>     
+
+</div>
+</div>
+</div>
+
+</body>
+<script>
+
+</script>
+</html>
